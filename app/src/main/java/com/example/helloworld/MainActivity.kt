@@ -1,7 +1,9 @@
 package com.example.helloworld
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -13,7 +15,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        findViewById<Button>(R.id.btn_go_to_next).apply {
+            setOnClickListener {
+                openThirdClass()
+            }
+        }
         Log.d(TAG, "Activity created")
+    }
+
+    private fun openThirdClass() {
+        Intent(this, ThirdClassActivity::class.java).also {
+            startActivity(it)
+        }
     }
 
     override fun onStart() {
