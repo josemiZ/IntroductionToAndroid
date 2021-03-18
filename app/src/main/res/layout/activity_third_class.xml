@@ -1,24 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <View
+        android:id="@+id/v_purple_700"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_gravity="center_horizontal"
         android:background="@color/purple_700" />
 
     <View
+        android:id="@+id/v_teal_200"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_gravity="center_vertical"
+        android:layout_below="@id/v_purple_700"
+        android:layout_centerHorizontal="true"
         android:background="@color/teal_200" />
 
     <View
+        android:id="@+id/v_purple_200"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_gravity="center"
+        android:layout_alignStart="@id/v_teal_200"
+        android:layout_alignParentBottom="true"
         android:background="@color/purple_200" />
 
-</FrameLayout>
+    <View
+        android:id="@+id/v_purple_500"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@id/v_purple_200"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/purple_500" />
+
+    <View
+        android:id="@+id/v_teal_700"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignBaseline="@id/v_teal_200"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center_vertical"
+        android:background="@color/teal_700" />
+
+    <View
+        android:id="@+id/v_black"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:background="@color/black" />
+
+</RelativeLayout>
