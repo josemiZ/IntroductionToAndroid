@@ -17,14 +17,22 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         findViewById<Button>(R.id.btn_go_to_next).apply {
             setOnClickListener {
-                openThirdClass()
+                openFourthClass()
             }
         }
         Log.d(TAG, "Activity created")
     }
 
     private fun openThirdClass() {
-        Intent(this, ThirdClassActivity::class.java).also {
+        openActivity<ThirdClassActivity>()
+    }
+
+    private fun openFourthClass() {
+        openActivity<FourthClassActivity>()
+    }
+
+    private inline fun <reified T> openActivity() {
+        Intent(this, T::class.java).also {
             startActivity(it)
         }
     }

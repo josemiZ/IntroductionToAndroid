@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Hello World</string>
     <string name="txt_go_to_next_class">Go to next Class</string>
+    <string name="txt_example_form">Formulario de muestra</string>
+    <string name="txt_insert_email">Inserte correo</string>
+    <string name="txt_validate">Validar</string>
 </resources>
