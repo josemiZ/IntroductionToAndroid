@@ -4,4 +4,5 @@
     <string name="txt_example_form">Formulario de muestra</string>
     <string name="txt_insert_email">Inserte correo</string>
     <string name="txt_validate">Validar</string>
+    <string name="text_size_18">18sp</string>
 </resources>

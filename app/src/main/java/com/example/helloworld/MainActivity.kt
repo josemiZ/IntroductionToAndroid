@@ -2,25 +2,24 @@ package com.example.helloworld
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
-
-    companion object {
-        const val TAG = "COOL TAG"
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        findViewById<Button>(R.id.btn_go_to_next).apply {
-            setOnClickListener {
-                openFourthClass()
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_list)
+        val linearLayoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = linearLayoutManager
+        recyclerView.adapter = MainAdapter(ClassModel.list) { position ->
+            when (position) {
+                3 -> openThirdClass()
+                4 -> openFourthClass()
             }
         }
-        Log.d(TAG, "Activity created")
     }
 
     private fun openThirdClass() {
@@ -37,28 +36,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        Log.d(TAG, "Activity started")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d(TAG, "Activity resumed")
-    }
-
-    override fun onPause() {
-        Log.d(TAG, "Activity paused")
-        super.onPause()
-    }
-
-    override fun onStop() {
-        Log.d(TAG, "Activity stopped")
-        super.onStop()
-    }
-
-    override fun onDestroy() {
-        Log.d(TAG, "Activity destroyed")
-        super.onDestroy()
-    }
 }
