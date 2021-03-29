@@ -5,10 +5,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.helloworld.fourth_class.FourthClassActivity
 import com.example.helloworld.R
-import com.example.helloworld.third_class.ThirdClassActivity
+import com.example.helloworld.fifth_class.FifthClassActivity
+import com.example.helloworld.fourth_class.FourthClassActivity
 import com.example.helloworld.model.ClassModel
+import com.example.helloworld.third_class.ThirdClassActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,20 +19,15 @@ class MainActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.rv_list)
         val linearLayoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = linearLayoutManager
-        recyclerView.adapter = MainAdapter(ClassModel.list) { position ->
-            when (position) {
-                3 -> openThirdClass()
-                4 -> openFourthClass()
-            }
+        recyclerView.adapter = MainAdapter(ClassModel.list, this::validateOpenActivity)
+    }
+
+    private fun validateOpenActivity(position: Int) {
+        when (position) {
+            3 -> openActivity<ThirdClassActivity>()
+            4 -> openActivity<FourthClassActivity>()
+            5 -> openActivity<FifthClassActivity>()
         }
-    }
-
-    private fun openThirdClass() {
-        openActivity<ThirdClassActivity>()
-    }
-
-    private fun openFourthClass() {
-        openActivity<FourthClassActivity>()
     }
 
     private inline fun <reified T> openActivity() {

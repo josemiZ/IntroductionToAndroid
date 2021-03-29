@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".third_class.ThirdClassActivity" />
         <activity android:name=".fourth_class.FourthClassActivity" />
+        <activity android:name=".fifth_class.FifthClassActivity" />
     </application>
 
 </manifest>
