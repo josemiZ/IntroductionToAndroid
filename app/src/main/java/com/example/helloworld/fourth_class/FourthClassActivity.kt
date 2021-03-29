@@ -1,10 +1,11 @@
-package com.example.helloworld
+package com.example.helloworld.fourth_class
 
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.helloworld.R
 
 class FourthClassActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

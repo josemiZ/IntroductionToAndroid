@@ -1,10 +1,12 @@
-package com.example.helloworld
+package com.example.helloworld.main
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.helloworld.R
+import com.example.helloworld.model.ClassModel
 
 class MainAdapter(
     private var list: List<ClassModel>,

@@ -1,4 +1,4 @@
-package com.example.helloworld
+package com.example.helloworld.model
 
 class ClassModel(var id: Int, var name: String) {
 

@@ -1,10 +1,14 @@
-package com.example.helloworld
+package com.example.helloworld.main
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.helloworld.fourth_class.FourthClassActivity
+import com.example.helloworld.R
+import com.example.helloworld.third_class.ThirdClassActivity
+import com.example.helloworld.model.ClassModel
 
 class MainActivity : AppCompatActivity() {
 

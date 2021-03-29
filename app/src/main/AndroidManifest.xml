@@ -9,15 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HelloWorld">
-        <activity android:name=".MainActivity">
+        <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ThirdClassActivity" />
-        <activity android:name=".FourthClassActivity" />
+        <activity android:name=".third_class.ThirdClassActivity" />
+        <activity android:name=".fourth_class.FourthClassActivity" />
     </application>
 
 </manifest>
