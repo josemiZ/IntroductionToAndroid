@@ -6,4 +6,13 @@
     <string name="txt_validate">Validar</string>
     <string name="text_size_18">18sp</string>
     <string name="txt_roll_dice">Roll the dice!</string>
+    <string name="txt_upload_image">Upload Image</string>
+    <string name="set_permissions_in_settings">Go to Settings -> Apps and Notifications -> Hello World -> App Permissions and grant access to Storage.</string>
+    <string name="blur_title">Select Blur Amount</string>
+    <string name="blur_lv_1">A little blurred</string>
+    <string name="blur_lv_2">More blurred</string>
+    <string name="blur_lv_3">The most blurred</string>
+    <string name="cancel_work">Cancel Work</string>
+    <string name="go">Go</string>
+    <string name="see_file">See File</string>
 </resources>

@@ -6,7 +6,8 @@ class ClassModel(var id: Int, var name: String) {
         val list: List<ClassModel> = arrayListOf(
             ClassModel(3, "Third Class"),
             ClassModel(4, "Fourth Class"),
-            ClassModel(5, "Fifth Class")
+            ClassModel(5, "Fifth Class"),
+            ClassModel(6,"Sixth Class")
         )
     }
 

@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.helloworld">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,6 +23,8 @@
         <activity android:name=".third_class.ThirdClassActivity" />
         <activity android:name=".fourth_class.FourthClassActivity" />
         <activity android:name=".fifth_class.FifthClassActivity" />
+        <activity android:name=".sixth_class.SixthClassActivity" />
+        <activity android:name=".sixth_class.BlurActivity" />
     </application>
 
 </manifest>
