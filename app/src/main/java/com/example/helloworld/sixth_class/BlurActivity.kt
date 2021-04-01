@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.helloworld.R
 import com.example.helloworld.databinding.ActivityBlurBinding
 import com.example.helloworld.util.KEY_IMAGE_URI
+import com.example.helloworld.util.PROGRESS
 
 class BlurActivity : AppCompatActivity() {
     private lateinit var viewModel: BlurViewModel
@@ -47,7 +48,20 @@ class BlurActivity : AppCompatActivity() {
             }
         }
         viewModel.outputWorkInfos.observe(this, ::observeOutputWorkInfo)
+        viewModel.progressWorkInfoItems.observe(this, ::observeProgressBar)
         binding.cancelButton.setOnClickListener { viewModel.cancelWork() }
+    }
+
+    private fun observeProgressBar(list: List<WorkInfo>?) {
+        if (list.isNullOrEmpty()) {
+            return
+        }
+        list.forEach { workInfo ->
+            if (WorkInfo.State.RUNNING == workInfo.state) {
+                val progress = workInfo.progress.getInt(PROGRESS, 0)
+                binding.progressBar.progress = progress
+            }
+        }
     }
 
     private fun observeOutputWorkInfo(list: List<WorkInfo>?) {
@@ -92,6 +106,7 @@ class BlurActivity : AppCompatActivity() {
             progressBar.visibility = View.GONE
             cancelButton.visibility = View.GONE
             goButton.visibility = View.VISIBLE
+            progressBar.progress = 0
         }
     }
 

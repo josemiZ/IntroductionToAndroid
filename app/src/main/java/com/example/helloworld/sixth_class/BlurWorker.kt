@@ -15,7 +15,10 @@ class BlurWorker(context: Context, params: WorkerParameters) : Worker(context, p
 
         val resourceUri = inputData.getString(KEY_IMAGE_URI)
 
-        sleep()
+        (0..100 step 10).forEach {
+            setProgressAsync(workDataOf(PROGRESS to it))
+            sleep()
+        }
 
         return try {
             if (resourceUri.isNullOrEmpty()) {

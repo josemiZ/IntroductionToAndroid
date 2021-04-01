@@ -35,3 +35,5 @@ u
 Eapp/src/main/java/com/example/helloworld/sixth_class/CleanupWorker.kt,0/a/0a69cb224e5788f77658a39e8a04a15cb814d887
 }
 Mapp/src/main/java/com/example/helloworld/sixth_class/SaveImageToFileWorker.kt,7/3/7347dc5093285fc77e49a67824e5f3f07e696123
+s
+Capp/src/main/java/com/example/helloworld/main/ExampleApplication.kt,4/2/42c69050fb1ab2f9d95273be1375a50fd83efbe6

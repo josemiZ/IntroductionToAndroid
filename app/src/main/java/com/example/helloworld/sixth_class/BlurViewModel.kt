@@ -8,17 +8,35 @@ import androidx.work.*
 import com.example.helloworld.util.IMAGE_MANIPULATION_WORK_NAME
 import com.example.helloworld.util.KEY_IMAGE_URI
 import com.example.helloworld.util.TAG_OUTPUT
+import com.example.helloworld.util.TAG_PROGRESS
 
 class BlurViewModel(application: Application) : AndroidViewModel(application) {
-
     internal var imageUri: Uri? = null
     internal var outputUri: Uri? = null
-
     private val workManager = WorkManager.getInstance(application)
+    internal val outputWorkInfos: LiveData<List<WorkInfo>> = workManager.getWorkInfosByTagLiveData(TAG_OUTPUT)
+    internal val progressWorkInfoItems: LiveData<List<WorkInfo>> = workManager.getWorkInfosByTagLiveData(TAG_PROGRESS)
 
-    // New instance variable for the WorkInfo
-    internal val outputWorkInfos: LiveData<List<WorkInfo>> =
-        workManager.getWorkInfosByTagLiveData(TAG_OUTPUT)
+    init {
+        // This transformation makes sure that whenever the current work Id changes the WorkInfo
+        // the UI is listening to changes
+    }
+
+    internal fun cancelWork() {
+        workManager.cancelUniqueWork(IMAGE_MANIPULATION_WORK_NAME)
+    }
+
+    /**
+     * Creates the input data bundle which includes the Uri to operate on
+     * @return Data which contains the Image Uri as a String
+     */
+    private fun createInputDataForUri(): Data {
+        val builder = Data.Builder()
+        imageUri?.let {
+            builder.putString(KEY_IMAGE_URI, imageUri.toString())
+        }
+        return builder.build()
+    }
 
     /**
      * Create the WorkRequest to apply the blur and save the resulting image
@@ -44,27 +62,24 @@ class BlurViewModel(application: Application) : AndroidViewModel(application) {
                 blurBuilder.setInputData(createInputDataForUri())
             }
 
+            blurBuilder.addTag(TAG_PROGRESS)
             continuation = continuation.then(blurBuilder.build())
         }
 
+        // Create charging constraint
         val constraints = Constraints.Builder()
             .setRequiresCharging(true)
             .build()
 
         // Add WorkRequest to save the image to the filesystem
-        OneTimeWorkRequestBuilder<SaveImageToFileWorker>()
+        val save = OneTimeWorkRequestBuilder<SaveImageToFileWorker>()
             .setConstraints(constraints)
-            .addTag(TAG_OUTPUT) // <-- ADD THIS
+            .addTag(TAG_OUTPUT)
             .build()
-            .let { workRequest ->
-                continuation = continuation.then(workRequest)
-            }
+        continuation = continuation.then(save)
+
         // Actually start the work
         continuation.enqueue()
-    }
-
-    internal fun cancelWork() {
-        workManager.cancelUniqueWork(IMAGE_MANIPULATION_WORK_NAME)
     }
 
     private fun uriOrNull(uriString: String?): Uri? {
@@ -73,14 +88,6 @@ class BlurViewModel(application: Application) : AndroidViewModel(application) {
         } else {
             null
         }
-    }
-
-    private fun createInputDataForUri(): Data {
-        val builder = Data.Builder()
-        imageUri?.let {
-            builder.putString(KEY_IMAGE_URI, imageUri.toString())
-        }
-        return builder.build()
     }
 
     /**
