@@ -27,6 +27,7 @@
         <activity android:name=".fifth_class.FifthClassActivity" />
         <activity android:name=".sixth_class.SixthClassActivity" />
         <activity android:name=".sixth_class.BlurActivity" />
+        <activity android:name=".seventh_class.SeventhClassActivity" />
 
         <provider
             android:name="androidx.work.impl.WorkManagerInitializer"

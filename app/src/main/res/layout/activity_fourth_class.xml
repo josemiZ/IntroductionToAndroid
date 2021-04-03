@@ -21,11 +21,11 @@
 
         <TextView
             android:id="@+id/tv_title"
+            style="@style/Base.Widget.AppCompat.TextView.TextViewHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_20"
             android:text="@string/txt_example_form"
-            android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"

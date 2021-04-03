@@ -15,4 +15,8 @@
     <string name="cancel_work">Cancel Work</string>
     <string name="go">Go</string>
     <string name="see_file">See File</string>
+    <string name="primary_color">Primary color</string>
+    <string name="button">Button</string>
+    <string name="secondary_color">Secondary color</string>
+    <string name="email_icon">email icon</string>
 </resources>
