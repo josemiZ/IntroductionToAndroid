@@ -16,8 +16,10 @@
 
 package com.example.helloworld.util
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import com.example.helloworld.repository.GithubService
+import com.example.helloworld.repository.local.RepoDatabase
 import com.example.helloworld.repository.remote.GithubRepository
 
 /**
@@ -31,15 +33,15 @@ object Injection {
      * Creates an instance of [GithubRepository] based on the [GithubService] and a
      * [GithubLocalCache]
      */
-    private fun provideGithubRepository(): GithubRepository {
-        return GithubRepository(GithubService.create())
+    private fun provideGithubRepository(context: Context): GithubRepository {
+        return GithubRepository(GithubService.create(), RepoDatabase.getInstance(context))
     }
 
     /**
      * Provides the [ViewModelProvider.Factory] that is then used to get a reference to
      * [ViewModel] objects.
      */
-    fun provideViewModelFactory(): ViewModelProvider.Factory {
-        return ViewModelFactory(provideGithubRepository())
+    fun provideViewModelFactory(context: Context): ViewModelProvider.Factory {
+        return ViewModelFactory(provideGithubRepository(context))
     }
 }
