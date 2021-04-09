@@ -10,4 +10,6 @@
     <color name="titleColor">#1F75FE</color>
     <color name="separatorBackground">#AAAAAA</color>
     <color name="separatorText">#FFFFFF</color>
+    <color name="red_700">#FFD32F2F</color>
+    <color name="red_400">#FFEF5350</color>
 </resources>

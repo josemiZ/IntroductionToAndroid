@@ -29,6 +29,7 @@
         <activity android:name=".sixth_class.BlurActivity" />
         <activity android:name=".seventh_class.SeventhClassActivity" />
         <activity android:name=".eighth_class.EighthClassActivity" />
+        <activity android:name=".ninth_class.NinthClassActivity" />
 
         <provider
             android:name="androidx.work.impl.WorkManagerInitializer"
