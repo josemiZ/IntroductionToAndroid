@@ -13,6 +13,7 @@ import com.example.helloworld.model.ClassModel
 import com.example.helloworld.ninth_class.NinthClassActivity
 import com.example.helloworld.seventh_class.SeventhClassActivity
 import com.example.helloworld.sixth_class.SixthClassActivity
+import com.example.helloworld.tenth_class.TenthClassActivity
 import com.example.helloworld.third_class.ThirdClassActivity
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity() {
             7 -> openActivity<SeventhClassActivity>()
             8 -> openActivity<EighthClassActivity>()
             9 -> openActivity<NinthClassActivity>()
+            10 -> openActivity<TenthClassActivity>()
         }
     }
 

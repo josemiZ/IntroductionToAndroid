@@ -30,6 +30,7 @@
         <activity android:name=".seventh_class.SeventhClassActivity" />
         <activity android:name=".eighth_class.EighthClassActivity" />
         <activity android:name=".ninth_class.NinthClassActivity" />
+        <activity android:name=".tenth_class.TenthClassActivity" />
 
         <provider
             android:name="androidx.work.impl.WorkManagerInitializer"
