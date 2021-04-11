@@ -31,6 +31,8 @@
         <activity android:name=".eighth_class.EighthClassActivity" />
         <activity android:name=".ninth_class.NinthClassActivity" />
         <activity android:name=".tenth_class.TenthClassActivity" />
+        <activity android:name=".eleventh_class.EleventhClassActivity" />
+        <activity android:name=".eleventh_class.NewWordActivity" />
 
         <provider
             android:name="androidx.work.impl.WorkManagerInitializer"

@@ -12,4 +12,5 @@
     <color name="separatorText">#FFFFFF</color>
     <color name="red_700">#FFD32F2F</color>
     <color name="red_400">#FFEF5350</color>
+    <color name="buttonLabel">#FFFFFF</color>
 </resources>

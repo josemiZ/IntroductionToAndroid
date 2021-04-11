@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.helloworld.R
 import com.example.helloworld.eighth_class.EighthClassActivity
+import com.example.helloworld.eleventh_class.EleventhClassActivity
 import com.example.helloworld.fifth_class.FifthClassActivity
 import com.example.helloworld.fourth_class.FourthClassActivity
 import com.example.helloworld.model.ClassModel
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
             8 -> openActivity<EighthClassActivity>()
             9 -> openActivity<NinthClassActivity>()
             10 -> openActivity<TenthClassActivity>()
+            11 -> openActivity<EleventhClassActivity>()
         }
     }
 

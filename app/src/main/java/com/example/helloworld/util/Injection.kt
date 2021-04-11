@@ -21,6 +21,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.helloworld.repository.GithubService
 import com.example.helloworld.repository.local.RepoDatabase
 import com.example.helloworld.repository.remote.GithubRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
 
 /**
  * Class that handles object creation.
@@ -29,12 +31,14 @@ import com.example.helloworld.repository.remote.GithubRepository
  */
 object Injection {
 
+
+    val applicationScope = CoroutineScope(SupervisorJob())
     /**
      * Creates an instance of [GithubRepository] based on the [GithubService] and a
      * [GithubLocalCache]
      */
     private fun provideGithubRepository(context: Context): GithubRepository {
-        return GithubRepository(GithubService.create(), RepoDatabase.getInstance(context))
+        return GithubRepository(GithubService.create(), RepoDatabase.getInstance(context, applicationScope))
     }
 
     /**

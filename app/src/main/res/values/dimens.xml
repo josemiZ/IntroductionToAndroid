@@ -21,4 +21,6 @@
     <dimen name="margin_between_elements">8dp</dimen>
     <dimen name="radio_button_padding">8dp</dimen>
     <dimen name="order_summary_margin">4dp</dimen>
+    <dimen name="big_padding">16dp</dimen>
+    <dimen name="min_height">48dp</dimen>
 </resources>

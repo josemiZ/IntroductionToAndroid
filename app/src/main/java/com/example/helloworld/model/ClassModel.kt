@@ -11,7 +11,8 @@ class ClassModel(var id: Int, var name: String) {
             ClassModel(7, "Seventh Class"),
             ClassModel(8, "Eighth Class"),
             ClassModel(9,"Ninth Class"),
-            ClassModel(10,"Tenth Class")
+            ClassModel(10,"Tenth Class"),
+            ClassModel(11,"Eleventh Class")
         )
     }
 
