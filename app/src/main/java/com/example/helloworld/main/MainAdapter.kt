@@ -10,7 +10,7 @@ import com.example.helloworld.model.ClassModel
 
 class MainAdapter(
     private var list: List<ClassModel>,
-    private var onClick: (Int) -> Unit
+    private var onClick: (ClassModel) -> Unit
 ) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -25,14 +25,12 @@ class MainAdapter(
 
     override fun getItemCount(): Int = list.size
 
-    inner class ViewHolder(itemView: View, private val onClick: (Int) -> Unit) :
+    class ViewHolder(itemView: View, private val onClick: (ClassModel) -> Unit) :
         RecyclerView.ViewHolder(itemView) {
         fun bind(model: ClassModel) {
             val text = itemView.findViewById<TextView>(R.id.tv_title)
             text.text = model.name
-            text.setOnClickListener {
-                onClick(model.id)
-            }
+            text.setOnClickListener { onClick(model) }
         }
     }
 }

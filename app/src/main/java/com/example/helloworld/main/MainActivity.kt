@@ -6,16 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.helloworld.R
-import com.example.helloworld.eighth_class.EighthClassActivity
-import com.example.helloworld.eleventh_class.EleventhClassActivity
-import com.example.helloworld.fifth_class.FifthClassActivity
-import com.example.helloworld.fourth_class.FourthClassActivity
 import com.example.helloworld.model.ClassModel
-import com.example.helloworld.ninth_class.NinthClassActivity
-import com.example.helloworld.seventh_class.SeventhClassActivity
-import com.example.helloworld.sixth_class.SixthClassActivity
-import com.example.helloworld.tenth_class.TenthClassActivity
-import com.example.helloworld.third_class.ThirdClassActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,22 +19,12 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = MainAdapter(ClassModel.list, this::validateOpenActivity)
     }
 
-    private fun validateOpenActivity(position: Int) {
-        when (position) {
-            3 -> openActivity<ThirdClassActivity>()
-            4 -> openActivity<FourthClassActivity>()
-            5 -> openActivity<FifthClassActivity>()
-            6 -> openActivity<SixthClassActivity>()
-            7 -> openActivity<SeventhClassActivity>()
-            8 -> openActivity<EighthClassActivity>()
-            9 -> openActivity<NinthClassActivity>()
-            10 -> openActivity<TenthClassActivity>()
-            11 -> openActivity<EleventhClassActivity>()
-        }
+    private fun validateOpenActivity(model: ClassModel) {
+        openActivity(model.activity)
     }
 
-    private inline fun <reified T> openActivity() {
-        Intent(this, T::class.java).also {
+    private fun openActivity(clazz: Class<*>) {
+        Intent(this, clazz).also {
             startActivity(it)
         }
     }
